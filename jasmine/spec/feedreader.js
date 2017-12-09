@@ -33,9 +33,10 @@ $(function() {
          */
          it('have a url', function() {
             allFeeds.forEach(function(feed) {
-                expect(feed.url).toBeDefined();
-                expect(feed.url).not.toBeNull();
-                expect(feed.url).not.toEqual('');
+                const url = feed.url;
+                expect(url).toBeDefined();
+                expect(url).not.toBeNull();
+                expect(url).not.toEqual('');
             });
          });
 
