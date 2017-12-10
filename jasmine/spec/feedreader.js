@@ -70,17 +70,21 @@ $(function() {
           * clicked and does it hide when clicked again.
           */
     describe('The menu', function() {
+        const bodyElement = document.getElementsByTagName('body')[0];
+        const menuIcon = document.getElementsByClassName('menu-icon-link')[0];
+        let thisClass;
+
         it('is hidden', function() {
-            const thisClass = document.getElementsByTagName('body')[0].className;
+            thisClass = bodyElement.className;
             expect(thisClass).toContain('menu-hidden');
         });
 
         it('toggles when menu clicked', function() {
-            document.getElementsByClassName('menu-icon-link')[0].click();
-            let thisClass = document.getElementsByTagName('body')[0].className;
+            menuIcon.click();
+            thisClass = bodyElement.className;
             expect(thisClass).not.toContain('menu-hidden');
-            document.getElementsByClassName('menu-icon-link')[0].click();
-            thisClass = document.getElementsByTagName('body')[0].className;
+            menuIcon.click();
+            thisClass = bodyElement.className;
             expect(thisClass).toContain('menu-hidden');
         });
     });
