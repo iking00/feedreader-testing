@@ -69,7 +69,13 @@ $(function() {
           * should have two expectations: does the menu display when
           * clicked and does it hide when clicked again.
           */
+    describe('The menu', function() {
+        it('is hidden', function() {
+            const thisClass = document.getElementsByTagName('body')[0].className;
+            expect(thisClass).toContain('menu-hidden');
+        });
 
+    });
     /* TODO: Write a new test suite named "Initial Entries" */
 
         /* TODO: Write a test that ensures when the loadFeed
