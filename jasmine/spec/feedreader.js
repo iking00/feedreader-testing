@@ -77,7 +77,7 @@ $(function() {
 
         //when done there should be more than 0 elements with .entry in .feed container
         it('are loaded and displayed', function(done) {
-            expect($('.feed .entry').length).not.toEqual(0);
+            expect($('.feed .entry').length).not.toBe(0);
             done();
         });
     });
