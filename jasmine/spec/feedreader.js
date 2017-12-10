@@ -75,6 +75,14 @@ $(function() {
             expect(thisClass).toContain('menu-hidden');
         });
 
+        it('toggles when menu clicked', function() {
+            document.getElementsByClassName('menu-icon-link')[0].click();
+            let thisClass = document.getElementsByTagName('body')[0].className;
+            expect(thisClass).not.toContain('menu-hidden');
+            document.getElementsByClassName('menu-icon-link')[0].click();
+            thisClass = document.getElementsByTagName('body')[0].className;
+            expect(thisClass).toContain('menu-hidden');
+        });
     });
     /* TODO: Write a new test suite named "Initial Entries" */
 
