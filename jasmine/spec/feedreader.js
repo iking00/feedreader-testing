@@ -23,7 +23,7 @@ $(function() {
                 const url = feed.url;
                 expect(url).toBeDefined();
                 expect(url).not.toBeNull();
-                expect(url).not.toEqual('');
+                expect(url.length).not.toBe(0);
             });
          });
 
@@ -33,7 +33,7 @@ $(function() {
                 const name = feed.name;
                 expect(name).toBeDefined();
                 expect(name).not.toBeNull();
-                expect(name).not.toEqual('');
+                expect(name.length).not.toBe(0);
             });
          });
     });
