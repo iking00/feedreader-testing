@@ -70,8 +70,8 @@ $(function() {
           * clicked and does it hide when clicked again.
           */
     describe('The menu', function() {
-        const bodyElement = document.getElementsByTagName('body')[0];
-        const menuIcon = document.getElementsByClassName('menu-icon-link')[0];
+        const bodyElement = $('body')[0];
+        const menuIcon = $('.menu-icon-link')[0];
         let thisClass;
 
         it('is hidden', function() {
