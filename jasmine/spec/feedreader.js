@@ -113,4 +113,22 @@ $(function() {
          * by the loadFeed function that the content actually changes.
          * Remember, loadFeed() is asynchronous.
          */
+    describe('New Feed Selection', function() {
+        const feedTitle = $('.header-title').html();
+        const firstEntry = $('.feed .entry:first').html();
+
+        beforeEach(function(done) {
+            loadFeed(1,function() {
+                done();
+            });
+        });
+
+        it('changes content', function(done) {
+            const newFeedTitle = $('.header-title').html();
+            const newFirstEntry = $('.feed .entry:first').html();
+            expect(newFeedTitle).not.toEqual(feedTitle);
+            expect(newFirstEntry).not.toEqual(firstEntry);
+            done();
+        });
+    });
 }());
