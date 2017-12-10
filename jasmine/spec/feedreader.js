@@ -27,7 +27,7 @@ $(function() {
         });
 
 
-        /* TODO: Write a test that loops through each feed
+        /* Test that loops through each feed
          * in the allFeeds object and ensures it has a URL defined
          * and that the URL is not empty.
          */
@@ -41,7 +41,7 @@ $(function() {
          });
 
 
-        /* TODO: Write a test that loops through each feed
+        /* Test that loops through each feed
          * in the allFeeds object and ensures it has a name defined
          * and that the name is not empty.
          */
@@ -114,20 +114,25 @@ $(function() {
          * Remember, loadFeed() is asynchronous.
          */
     describe('New Feed Selection', function() {
-        const feedTitle = $('.header-title').html();
-        const firstEntry = $('.feed .entry:first').html();
+        let feedTitle, 
+            firstEntry;
+        let headerTitle = $('.header-title');
 
         beforeEach(function(done) {
-            loadFeed(1,function() {
-                done();
+            loadFeed(1, function() {
+                feedTitle = headerTitle.html();
+                firstEntry = $('.feed .entry:first h2').html();
+                loadFeed(0, function() {
+                    done();
+                })
             });
         });
 
         it('changes content', function(done) {
-            const newFeedTitle = $('.header-title').html();
-            const newFirstEntry = $('.feed .entry:first').html();
-            expect(newFeedTitle).not.toEqual(feedTitle);
-            expect(newFirstEntry).not.toEqual(firstEntry);
+            const newFeedTitle = headerTitle.html();
+            const newFirstEntry = $('.feed .entry:first h2').html();
+            expect(newFeedTitle).not.toBe(feedTitle);
+            expect(newFirstEntry).not.toBe(firstEntry);
             done();
         });
     });
