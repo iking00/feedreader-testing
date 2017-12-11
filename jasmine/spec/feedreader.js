@@ -40,14 +40,13 @@ $(function() {
 
     //test the visibility and toggle of the menu
     describe('The menu', function() {
-        const bodyElement = $('body')[0];
         const menuIcon = $('.menu-icon-link')[0];
-        let thisClass;
+        let menuHidden;
 
         //menu should initially be hidden by assigning body the appropriate class
         it('is hidden', function() {
-            thisClass = bodyElement.className;
-            expect(thisClass).toContain('menu-hidden');
+            menuHidden = $('body').hasClass('menu-hidden');
+            expect(menuHidden).toBeTruthy();
         });
 
         //menu should toggle when menu is clicked
@@ -55,13 +54,13 @@ $(function() {
             //trigger menu click
             menuIcon.click();
             //class should be toggled on body
-            thisClass = bodyElement.className;
-            expect(thisClass).not.toContain('menu-hidden');
+            menuHidden = $('body').hasClass('menu-hidden');
+            expect(menuHidden).toBeFalsy();
             //trigger menu click
             menuIcon.click();
             //class should be toggled on body
-            thisClass = bodyElement.className;
-            expect(thisClass).toContain('menu-hidden');
+            menuHidden = $('body').hasClass('menu-hidden');
+            expect(menuHidden).toBeTruthy();
         });
     });
 
